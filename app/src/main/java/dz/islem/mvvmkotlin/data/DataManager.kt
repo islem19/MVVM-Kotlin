@@ -3,15 +3,9 @@ package dz.islem.mvvmkotlin.data
 import dz.islem.mvvmkotlin.data.model.Comment
 import dz.islem.mvvmkotlin.data.model.Post
 import dz.islem.mvvmkotlin.data.remote.RemoteApi
-import dz.islem.mvvmkotlin.data.remote.RemoteService
 import io.reactivex.Observable
 
-object DataManager {
-    var remoteApi : RemoteApi
-
-    init {
-        remoteApi = RemoteService.buildService(RemoteApi::class.java)
-    }
+class DataManager(val remoteApi : RemoteApi) {
 
     fun loadPosts() : Observable<List<Post>>{
         return remoteApi.loadPosts()

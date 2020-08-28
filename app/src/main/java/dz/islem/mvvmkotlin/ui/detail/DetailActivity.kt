@@ -5,17 +5,22 @@ import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import dz.islem.mvvmkotlin.R
 import dz.islem.mvvmkotlin.data.DataManager
 import dz.islem.mvvmkotlin.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_detail.*
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class DetailActivity : BaseActivity<DetailViewModel>() {
     private var postId : Int ?= null
-    private lateinit var detailAdapter : DetailAdapter
+    @Inject
+    lateinit var detailAdapter : DetailAdapter
+    @Inject
+    lateinit var detailViewModelFactory : DetailViewModelFactory
 
     override fun createViewModel(): DetailViewModel {
-        val detailViewModelFactory = DetailViewModelFactory(DataManager)
         return ViewModelProvider(this,detailViewModelFactory).get(DetailViewModel::class.java)
     }
 

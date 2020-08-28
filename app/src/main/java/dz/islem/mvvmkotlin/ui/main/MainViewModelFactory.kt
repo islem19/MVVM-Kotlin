@@ -5,11 +5,11 @@ import androidx.lifecycle.ViewModelProvider
 import dz.islem.mvvmkotlin.data.DataManager
 import java.lang.IllegalArgumentException
 
-class MainViewModelFactory(val dataManager : DataManager) : ViewModelProvider.Factory {
+class MainViewModelFactory(val VM : MainViewModel) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(MainViewModel::class.java))
-            return MainViewModel(dataManager) as T
+        if (modelClass.isAssignableFrom(VM.javaClass))
+            return VM as T
         throw IllegalArgumentException("Unknown Argument")
     }
 }

@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import dz.islem.mvvmkotlin.R
 import dz.islem.mvvmkotlin.data.model.Comment
 import dz.islem.mvvmkotlin.ui.main.MainAdapter
+import javax.inject.Inject
 
-class DetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class DetailAdapter @Inject constructor(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var comments = ArrayList<Comment>()
 

@@ -11,8 +11,9 @@ import dz.islem.mvvmkotlin.App
 import dz.islem.mvvmkotlin.R
 import dz.islem.mvvmkotlin.data.model.Post
 import dz.islem.mvvmkotlin.ui.detail.DetailActivity
+import javax.inject.Inject
 
-class MainAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MainAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_post, parent,false)
